@@ -22,6 +22,24 @@ resource "aws_vpc" "main" {
   }
 }
 
+resource "aws_s3_bucket" "demo_bucket" {
+  bucket = "aws-devops-demo-bucket-${random_id.bucket_id.hex}"
+  acl    = "private"
+
+  tags = {
+    Name        = "devops-demo-bucket"
+    Environment = "dev"
+  }
+}
+
+resource "random_id" "bucket_id" {
+  byte_length = 4
+}
+
 output "vpc_id" {
   value = aws_vpc.main.id
+}
+
+output "s3_bucket_name" {
+  value = aws_s3_bucket.demo_bucket.bucket
 }
