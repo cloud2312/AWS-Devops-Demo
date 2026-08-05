@@ -8,7 +8,7 @@ on:
 
 defaults:
   run:
-    working-directory: Demo-1   # 👈 run all commands inside Demo-1
+    working-directory: Demo-1   # 👈 all steps run inside Demo-1
 
 jobs:
   plan:
@@ -44,7 +44,5 @@ jobs:
           aws-region: us-east-1
       - name: Terraform Init
         run: terraform init -reconfigure
-        working-directory: Demo-1
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        working-directory: Demo-1
