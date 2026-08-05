@@ -3,6 +3,10 @@ name: Terraform Destroy
 on:
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: Demo-1   # 👈 run all commands inside Demo-1    
+
 jobs:
   plan:
     runs-on: ubuntu-latest
