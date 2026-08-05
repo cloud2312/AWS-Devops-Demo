@@ -49,7 +49,6 @@ terraform {
     bucket         = "my-terraform-state-bucket-2028"
     key            = "devops-demo/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
     use_lockfile   = true
   }
 }
