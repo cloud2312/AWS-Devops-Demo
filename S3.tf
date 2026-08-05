@@ -11,8 +11,11 @@ resource "aws_s3_bucket" "demo_bucket" {
   }
 }
 
-# New resource for ACL
-resource "aws_s3_bucket_acl" "demo_bucket_acl" {
+resource "aws_s3_bucket_ownership_controls" "demo_bucket_ownership" {
   bucket = aws_s3_bucket.demo_bucket.id
-  acl    = "private"
+
+  rule {
+    object_ownership = "BucketOwnerEnforced"
+  }
 }
+
